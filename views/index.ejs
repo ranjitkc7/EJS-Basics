@@ -8,7 +8,49 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <h1 class="h1-tag">Hello Ranjit Add <%= 9 + 1%></h1>
+    <div class="main bg-[#003049] flex items-center justify-center p-[1rem] h-screen">
+      <div class="sub-main bg-[#caf0f8] border-[1px] border-black rounded-md my-[1rem] h-[98%] w-[70%] overflow-y-auto">
+        
+        <form class="form-div m-[1rem]" action="/create" method="post">
+          <input
+            name="title"
+            class="bg-white px-[12px] py-[6px] rounded-md text-[1.1rem] w-full placeholder-gray-600"
+            type="text"
+            placeholder="Enter the title of the Note.."
+            required
+          />
+
+          <textarea
+            name="details"
+            class="bg-white px-[12px] mt-[1rem] py-[6px] rounded-md resize-none w-full placeholder-gray-600"
+            placeholder="Enter your text here..."
+            required
+          ></textarea>
+
+          <button
+            type="submit"
+            class="button mt-[1rem] px-[6px] py-[4px] rounded-md w-[8rem] bg-blue-700 font-[700] text-white"
+          >
+            Create Note
+          </button>
+        </form>
+
+       
+        <div class="task mt-[1rem] gap-[1rem] flex flex-wrap mx-[1rem]">
+          <% if (files.length > 0) { %>
+            <% files.forEach((file) => { %>
+              <div class="h-[8rem] w-[18rem] bg-white rounded-md p-[7px] shadow-md">
+                <h1 class="text-[1.2rem] font-semibold"><%= file %></h1>
+                <a class="text-blue-700 underline" href="#">Read more...</a>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <h1 class="text-[1.2rem]">No texts found yet.</h1>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <script src="/javaScripts/script.js"></script>
   </body>
-  <script src="/javaScripts/script.js"></script>
 </html>
