@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
     res.render("index", { files });
   });
 });
+
 app.post("/create", (req, res) => {
   const fileName = req.body.title.split(" ").join("") + ".txt";
   const filePath = path.join(filesDir, fileName);
@@ -33,6 +34,17 @@ app.post("/create", (req, res) => {
     res.redirect("/");
   });
 });
+
+app.get('/files/:fileName', (req, res) => {
+   fs.readFile(`./files/${req.params.fileName}`, 'utf-8', (err, fileData) => {
+      if (err) {
+         console.error('Error reading file:', err);
+         return res.status(500).send('Error reading file');
+      }
+      res.render('show', { fileName: req.params.fileName, 
+         fileData: fileData });
+   })
+})
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

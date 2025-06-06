@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="main bg-[#003049] flex items-center justify-center p-[1rem] h-screen">
-      <div class="sub-main bg-[#caf0f8] border-[1px] border-black rounded-md my-[1rem] h-[98%] w-[70%] overflow-y-auto">
+      <div class="sub-main bg-[#caf0f8] border-[1px] border-black rounded-md my-[1rem] h-[98%] w-[72%] overflow-y-auto">
         
         <form class="form-div m-[1rem]" action="/create" method="post">
           <input
@@ -41,7 +41,7 @@
             <% files.forEach((file) => { %>
               <div class="h-[8rem] w-[18rem] bg-white rounded-md p-[7px] shadow-md">
                 <h1 class="text-[1.2rem] font-semibold"><%= file %></h1>
-                <a class="text-blue-700 underline" href="#">Read more...</a>
+                <a class="text-blue-700 underline" href="/files/<%= file%>">Read more...</a>
               </div>
             <% }) %>
           <% } else { %>
