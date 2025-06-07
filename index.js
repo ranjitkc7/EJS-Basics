@@ -45,6 +45,19 @@ app.get('/files/:fileName', (req, res) => {
          fileData: fileData });
    })
 })
+app.get('/edit/:fileName', (req, res) => {
+  res.render('edit', { fileName: req.params.fileName });
+});
+
+app.post(`/edit`, (req, res) => {
+  fs.rename(`./files/${req.body.previous}`, `./files/${req.body.new}`, (err) => {
+    if (err) {
+      console.error('Error renaming file:', err);
+      return res.status(500).send('Error renaming file');
+    }
+    res.redirect('/');
+  });
+})
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

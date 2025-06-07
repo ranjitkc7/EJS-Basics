@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styleSheets/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div
+      class="main bg-[#003049] flex items-center justify-center p-[1rem] h-screen"
+    >
+      <div
+        class="sub-main bg-[#caf0f8] border-[1px] p-[0.7rem] border-black rounded-md my-[1rem] h-[98%] w-[70%] overflow-y-auto"
+      >
+        <a
+          href="/"
+          class="link bg-white px-[12px] py-[6px] rounded-md text-[1.1rem] text-blue-700"
+          >Go back...</a
+        >
+        <form
+          class="form-div flex flex-col m-[1rem]"
+          action="/edit"
+          method="post"
+        >
+          <input
+            name="previous"
+            class="bg-white px-[12px] py-[6px] rounded-md text-[1.1rem] w-[20rem] 
+            placeholder-gray-600 text-slate-500"
+            type="text"
+            value="<%= fileName %>"
+          />
+          <input
+            name="new"
+            class="bg-white px-[12px] py-[6px] mt-[12px] rounded-md text-[1.1rem] w-[20rem] placeholder-gray-600"
+            type="text"
+            placeholder="Enter the new file name"
+          />
+
+          <button
+            type="submit"
+            class="button mt-[1rem] px-[6px] py-[4px] rounded-md w-[8rem] bg-yellow-400 font-[700]"
+          >
+            Change Tilte
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="/javaScripts/script.js"></script>
+  </body>
+</html>

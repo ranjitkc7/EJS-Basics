@@ -41,7 +41,10 @@
             <% files.forEach((file) => { %>
               <div class="h-[8rem] w-[18rem] bg-white rounded-md p-[7px] shadow-md">
                 <h1 class="text-[1.2rem] font-semibold"><%= file %></h1>
-                <a class="text-blue-700 underline" href="/files/<%= file%>">Read more...</a>
+                 <div class="flex justify-between items-center">
+                  <a class="text-blue-700 underline" href="/files/<%= file%>">Read more...</a>
+                  <a class="text-green-800 underline" href="/edit/<%= file%>">Edit fileName... </a>
+                 </div>
               </div>
             <% }) %>
           <% } else { %>
